@@ -24,6 +24,9 @@ const pokémon = Object.freeze([
         { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
     ]);
     
+const example = pokémon.map((t,i) => `${i} : ${t.name}`);   //t = data, i=index from original array
+console.log(example);
+
 const bListPkmn = pokémon.filter(p => p.name[0] === "B");
 console.log(bListPkmn);
 
