@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './SubContents.module.css'
+import styles from '../css/SubContents.module.css'
 
 class SubContents extends Component {
     render() {
