@@ -16,7 +16,7 @@ class Menu extends Component {
             <div>
                  <h3>Dish: {this.props.dishName}</h3>
                  <h4>Price: ${this.state.price}</h4>
-                 <p>{this.props.children}</p>
+                 {this.props.children}
                  <button className="btn" onClick={()=>this.setState({price: this.state.price*2})}> Increase Price</button>
             </div>
         );

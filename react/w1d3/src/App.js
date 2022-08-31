@@ -1,9 +1,13 @@
 import './App.css';
 import Menu from './components/Menu';
+import MixItUp from './components/MixItUp';
+
 
 function App() {
   return (
     <div className="App">
+      <MixItUp likes={1}/>
+      <hr/>
       <h1>Brian's Bistro</h1>
       <h2>Le Menu</h2>
       <Menu dishName="Grilled Cheese" price={35.00}>
