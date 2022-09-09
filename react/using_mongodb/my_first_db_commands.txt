@@ -1,0 +1,59 @@
+use my_first_db
+
+db.createCollection ('students')
+
+db.students.insert([
+  {name: "Brian Lucius", 
+  home_state: "Colorado", 
+  lucky_number: 42, 
+  birthday: {month: 08, day: 24, year: 1976}},
+  {name: "Alex Miller", 
+  home_state: "California", 
+  lucky_number: 24, 
+  birthday: {month: 03, day: 17, year: 1985}},
+  {name: "Martha Smith", 
+  home_state: "Illinois", 
+  lucky_number: 13, 
+  birthday: {month: 12, day: 16, year: 1997}},
+  {name: "Jill Haley", 
+  home_state: "Florida", 
+  lucky_number: 108, 
+  birthday: {month: 06, day: 30, year: 1956}},
+  {name: "Eleanore Rigby", 
+  home_state: "Stratfordshire", 
+  lucky_number: 7, 
+  birthday: {month: 01, day: 01, year: 1966}}])
+
+db.students.find({ "home_state": { $in: [ "California", "Illinois" ] } } )
+
+db.students.find({ "lucky_number": { $gt: 3 } } )
+db.students.find({ "lucky_number": { $gte: 42 } } )
+db.students.find({ "lucky_number": { $lte: 10 } } )
+
+db.students.find({ "lucky_number": { $gte: 1 ,$lte: 9 } } )
+
+db.students.updateMany({}, {$set:{"interests": ["coding","brunch","MongoDB"]}})
+
+db.students.update({"name": "Brian Lucius"}, { $push: {"interests": "music"}})
+db.students.update({"name": "Alex Miller"}, { $push: {"interests": {$each: ["coffee","sports"]}}})
+db.students.update({"name": "Martha Smith"}, { $push: {"interests": {$each: ["hiking","running"]}}})
+db.students.update({"name": "Jill Haley"}, { $push: {"interests": "marathons"}})
+db.students.update({"name": "Eleanore Rigby"}, { $push: {"interests": {$each: ["food","taxes"]}}})
+
+db.students.update({"name": "Eleanore Rigby"}, { $pop: {"interests": 1}})
+
+db.students.remove({"home_state": "California"})
+
+db.students.remove({"name": "Eleanore Rigby"})
+
+db.students.remove({"lucky_number": {$gt: 5}}, true)
+
+db.students.updateMany({}, {$set:{"number_of_belts":0}})
+
+db.students.updateMany({"home_state":"Florida"}, {$inc:{"number_of_belts": 1}})
+
+db.students.updateMany({},{$rename: {"number_of_belts":"belts_earned"}})
+
+db.students.updateMany({},{$unset: {"lucky_number":""}})
+
+db.students.updateMany({}, {$currentDate: {"updated_on": {$type: "date"}}})
