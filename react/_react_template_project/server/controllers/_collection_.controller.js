@@ -1,4 +1,4 @@
-const _Collection_ = require('../models/_Collection_.model');
+const _Collection_ = require('../models/_collection_.model');
 
 // Show all _Collection_s
 module.exports.showAll_Collection_s = (req, res)=> {

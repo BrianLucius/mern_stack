@@ -1,4 +1,4 @@
-const _Collection_Controller = require("../controllers/ _collection_.controller");
+const _Collection_Controller = require("../controllers/_collection_.controller");
 
 module.exports = (app) => {
     //Display all _Collection_s
