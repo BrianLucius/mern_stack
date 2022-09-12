@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { modelName } = require("../../../_react_template_project/server/models/_collection_.model");
 
 const HeroSchema = new mongoose.Schema({
     name: {
@@ -20,4 +19,4 @@ const HeroSchema = new mongoose.Schema({
 });
 
 const Hero = mongoose.model("Hero", HeroSchema);
-model.exports = Hero;
+module.exports = Hero;
