@@ -1,0 +1,7 @@
+/*
+createHero
+findAllHeros
+displayHero
+updateHero
+deleteHero
+*/
