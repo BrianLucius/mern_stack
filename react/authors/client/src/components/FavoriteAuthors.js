@@ -13,11 +13,11 @@ const FavoriteAuthors = () => {
           setLoaded(true);
       })
       .catch(err => console.error(err));
-    });  // without `},[]);` useEffect is watching the collection and updates the response data in real-time
+    },[]);
 
     const deleteAuthor = authorId => {
       axios.delete(`http://localhost:8000/api/authors/${authorId}`)
-        .then(response => {setAuthors(authors.filter(author => author._id !== authorId));})  //if enabling auto useEffect, this .filter becomes redundant
+        .then(response => {setAuthors(authors.filter(author => author._id !== authorId));})
         .catch(err => console.error(err));
     }
 
@@ -28,8 +28,8 @@ const FavoriteAuthors = () => {
         <table className="table table-bordered">
           <thead className="table-light">
             <tr>
-              <td>Author</td>
-              <td>Actions Available</td>
+              <th>Author</th>
+              <th>Actions Available</th>
             </tr>
           </thead>
           <tbody className='table-group-divider'>
@@ -49,4 +49,4 @@ const FavoriteAuthors = () => {
     )
 }
 
-export default FavoriteAuthors
+export default FavoriteAuthors;
