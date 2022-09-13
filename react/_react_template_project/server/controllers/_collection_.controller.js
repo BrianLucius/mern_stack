@@ -11,7 +11,7 @@ module.exports.showAll_Collection_s = (req, res)=> {
 module.exports.createOne_Collection_ = (req, res) => {
     _Collection_.create(req.body)
         .then(new_Collection_ => res.json({data: new_Collection_}))
-        .catch(err => res.json({message: 'Something went wrong', error: err}));
+        .catch(err => res.status(400).json({message: 'Something went wrong', error: err}));
 }
 
 //Find one _Collection_
@@ -25,7 +25,7 @@ module.exports.findOne_Collection_ = (req, res) => {
 module.exports.update_Collection_ = (req, res) => {
     _Collection_.findOneAndUpdate ({_id:req.params.id}, req.body, {new: true, runValidators: true}) //set the new option to true to return the document after update was applied
         .then(updated_Collection_ => res.json({data: updated_Collection_}))
-        .catch(err => res.json({message: 'Something went wrong', error: err}));
+        .catch(err => res.status(400).json({message: 'Something went wrong', error: err}));
 }
 
 //Delete _Collection_
